@@ -1,5 +1,20 @@
 module.exports = {
   /*
+  ** Customizing Port for dev Build
+  */
+  server: {
+    port: 3001,
+  },
+  /*
+  ** Enabling Dev Tools
+  */
+  /*vue: {
+    config: {
+      productionTip: false,
+      devtools: true //Ist noch Verbuggt, muss ich noch fixen
+    }
+  },*/
+  /*
   ** Headers of the page
   */
   head: {
@@ -24,7 +39,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
