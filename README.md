@@ -1,5 +1,16 @@
 # site
 
+When Going into prod (note to myself)
+```bash
+# Disable Standard Configs
+$ sudo a2dissite 000-default.conf
+$ sudo a2dissite 000-default-le-ssl.conf
+
+# Enable New Config
+$ sudo a2ensite site.conf
+
+```
+
 > Website Running on ScarVite.de
 
 ## Build Setup
