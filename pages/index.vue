@@ -1,22 +1,14 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
       <h1 class="title">
-        site
+        Welcome To My Site
       </h1>
       <h2 class="subtitle">
-        Website Running on ScarVite.de
+        This Site is Still under Development. Check Back Later
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        
       </div>
     </div>
   </section>
@@ -28,12 +20,28 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
+  },
+  computed: {
+    message() {
+      return this.$store.state.message;
+    }
+  },
+  methods: {
+    changeMessage(Message) {
+      this.$store.commit('changeMessage', Message);
+    }
+  },
+  created() {
+    setTimeout(() => {
+      this.changeMessage("Hallo 2")
+    }, 10000);
   }
 }
 </script>
 
 <style>
 .container {
+  background-color: grey;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -46,14 +54,14 @@ export default {
   display: block;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  color: orange;
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
+  color: white;
   word-spacing: 5px;
   padding-bottom: 15px;
 }

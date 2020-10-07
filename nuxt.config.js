@@ -22,7 +22,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Website Running on ScarVite.de' }
+      { hid: 'description', name: 'description', content: 'ScarVite Portfolio' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -36,6 +36,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    devMiddleware: {
+      headers: {
+        'Cache-Control': 'no-store',
+        Vary: '*'
+      }
+    },
     /*
     ** Run ESLint on save
     */
