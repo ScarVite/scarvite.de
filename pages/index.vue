@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <div v-if="loaded" class="container">
     <div>
       <h1 class="title">
         Welcome To My Site
@@ -8,10 +8,12 @@
         This Site is Still under Development. Check Back Later
       </h2>
       <div class="links">
-        
       </div>
     </div>
-  </section>
+  </div>
+  <div v-else class="container">
+    Loading
+  </div>
 </template>
 
 <script>
@@ -20,6 +22,11 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
+  },
+  data() {
+    return {
+      loaded: true,
+    }
   },
   computed: {
     message() {

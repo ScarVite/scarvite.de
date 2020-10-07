@@ -15,6 +15,10 @@ module.exports = {
     }
   },*/
   /*
+  ** Enabling Google Analytics
+  */
+  plugins: [{ src: '~plugins/ga.js', mode: 'client' }],
+  /*
   ** Headers of the page
   */
   head: {
