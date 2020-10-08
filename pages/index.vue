@@ -2,7 +2,7 @@
   <div v-if="loaded" class="container">
     <div>
       <h1 class="title">
-        Welcome To My Site
+        Welcome to My Site
       </h1>
       <h2 class="subtitle">
         This Site is Still under Development. Check Back Later
