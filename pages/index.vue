@@ -26,7 +26,7 @@ import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 
 export default {
   components: {
-    AppLogo,
+    
   },
   data() {
     return {
