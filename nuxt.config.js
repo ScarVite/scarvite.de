@@ -18,6 +18,9 @@ module.exports = {
   ** Enabling Google Analytics
   */
   plugins: [{ src: '~plugins/ga.js', mode: 'client' }],
+  modules: [
+    '@nuxtjs/axios',
+  ],
   /*
   ** Headers of the page
   */
