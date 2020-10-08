@@ -1,0 +1,28 @@
+name: Deploy
+on:
+  push:
+    branches: master
+    paths-ignore:
+    - '**.md'
+    - '**.yml'
+jobs:
+  Deploy:
+    runs-on: debian-10
+    steps:
+      - name: Deploying...
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.IPHOST }}
+          username: ${{ secrets.SSHUSERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          passphrase:  ${{ secrets.SSHKEYPASSWORD }}
+          script: |
+            screen -X -S site quit
+            screen -S site
+            cd /home/ScarVite/site
+            git reset --hard
+            git pull
+            npm install
+            nuxt generate
+            nuxt build
+            nuxt start
