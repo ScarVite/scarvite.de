@@ -5,7 +5,7 @@
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
   >
     <div>
-      <h1 class="title">Hallo Jean-Michel</h1>
+      <h1 class="title">Welcome to My Website</h1>
       <h2 class="subtitle">
         This Site is Still undergoing Development. Check Back Later
       </h2>
@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import AppLogo from "~/components/AppLogo.vue";
 import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 
 export default {

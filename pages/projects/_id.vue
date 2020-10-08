@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     fetched() {
-      return this.fetchCount == 1;
+      return (this.fetchCount == 1);
     },
   },
   methods: {},
@@ -49,6 +49,6 @@ export default {
 
 <style>
 .wrapper {
-  display: none;
+  
 }
 </style>
