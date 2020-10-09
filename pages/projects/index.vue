@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        Here Will be Stuff
+        <!-- Hier V-for -->
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-
+      projects: [],
     };
   },
   computed: {
@@ -21,7 +21,15 @@ export default {
 
   },
   created() {
-
+    this.$axios
+      .$get(`https://api.scarvite.de/site/projects`)
+      .then((projects) => {
+        this.projects = projects;
+        this.fetchCount++;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   head() {
     return {
