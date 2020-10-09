@@ -1,12 +1,34 @@
 <template>
-  <div>
-    <nuxt/>
+  <div class="app">
+    <ThemePicker class="theme" v-on-clickaway="123" />
+    <nuxt class="nuxt" />
   </div>
 </template>
 
+<script>
+import ThemePicker from "@/components/ThemePicker";
+
+export default {
+  components: {
+    ThemePicker,
+  },
+};
+</script>
+
 <style>
+.app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.theme {
+  display: none;
+}
+
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -15,7 +37,9 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dropdown-wrapper">
     <fa-icon class="button" @click="expanded = !expanded" icon="list" />
     <div v-if="expanded" class="color-wrapper">
       <div v-for="(color, i) of colors" :key="i">
@@ -16,35 +16,41 @@ export default {
   components: {},
   data() {
     return {
-      colors: [{name: "Light", color: "light"},{ name: "Dark", color: "dark"},{ name: "Sepia", color: "sepia"}],
+      colors: [
+        { name: "Light", color: "light" },
+        { name: "Dark", color: "dark" },
+        { name: "Sepia", color: "sepia" },
+      ],
       expanded: false,
+      expandedTest: false,
     };
   },
+  methods: {},
 };
 </script>
 
 <style>
-
-
-.button {
-  font-size: 2vw;
+.dropdown-wrapper {
   float: right;
-  cursor: pointer;
 }
 
-.color-wrapper {
-  
+.button {
+  margin: auto;
+  font-size: 3vw;
+  display: flex;
+  align-content: right;
+  cursor: pointer;
 }
 
 .color {
-  float: right;
-  transition: all .3s ease;
+  display: block;
+  /*transition: all .3s ease;
   height: 30vw;
-  padding: 1vw;
-  /*margin: auto;*/
-  overflow: hidden;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  margin: auto;*/
+  text-align: right;
   right: 0;
   cursor: pointer;
-  color: white;
 }
 </style>

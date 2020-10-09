@@ -1,7 +1,6 @@
 <template >
   <div class="app">
     <div v-if="fetched" class="wrapper">
-      <ThemePicker v-on-clickaway="123" />
       <div class="project">
         <div class="name">
           {{ project.name }}
@@ -14,7 +13,6 @@
         </div>
       </div>
     </div>
-    <div v-else-if="error.code">Error</div>
     <div v-else class="loading-wrapper">
       <loader class="ring" />
     </div>
@@ -22,13 +20,11 @@
 </template>
 
 <script>
-import ThemePicker from "@/components/ThemePicker";
 import loader from "~/components/loader.vue";
 
 export default {
   components: {
     loader,
-    ThemePicker,
   },
   validate({ params }) {
     // Must be a number
@@ -51,8 +47,8 @@ export default {
     this.$axios
       .get(`https://api.scarvite.de/site/project/${this.$route.params.id}`)
       .then((response) => {
-        if (response.statusCode == 204)
-          this.error = { code: response.statusCode };
+        if (response.status == 204)
+          return this.$nuxt.error({ statusCode: 404, message: "Project Not Found" })
         else {
           this.project = response.data;
           this.fetchCount++;
