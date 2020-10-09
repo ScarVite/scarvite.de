@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: 14 
       - name: Install Deps
-        run: npm install
+        run: |
+         npm install
+         npm install nuxt
       - name: Build
         run: |
           nuxt generate --fail-on-error
