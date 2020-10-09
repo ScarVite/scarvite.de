@@ -7,7 +7,7 @@ on:
 jobs:
   Test:
     name: Test Deployability
-    runs-on: debian-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14
