@@ -26,7 +26,6 @@ import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 
 export default {
   components: {
-    
   },
   data() {
     return {
@@ -52,12 +51,6 @@ export default {
   head() {
     return {
       title: "ScarVite",
-      meta: [
-        {
-          name: "viewport",
-          content: "width=device-width,initial-scale=1.0,minimum-scale=1.0",
-        },
-      ],
     };
   },
 };
@@ -69,7 +62,6 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #999;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -99,4 +91,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-

@@ -1,22 +1,34 @@
 <template >
-  <div v-if="fetched" class="wrapper">
-    <div class="project">
-      <div class="name">
-        {{ project.name }}
-      </div>
-      <div class="Github">
-        Find This on <a :href="project.ghLink" target="_blank">Github</a>
-      </div>
-      <div class="image">
-        <img :src="project.image" />
+  <div class="app">
+    <div v-if="fetched" class="wrapper">
+      <ThemePicker v-on-clickaway="123" />
+      <div class="project">
+        <div class="name">
+          {{ project.name }}
+        </div>
+        <div class="Github">
+          Find This on <a :href="project.ghLink" target="_blank">Github</a>
+        </div>
+        <div class="image">
+          <img :src="project.image" />
+        </div>
       </div>
     </div>
+    <div v-else class="loading-wrapper">
+      <loader class="ring" />
+    </div>
   </div>
-  <div v-else>test2</div>
 </template>
 
 <script>
+import ThemePicker from "@/components/ThemePicker";
+import loader from "~/components/loader.vue";
+
 export default {
+  components: {
+    loader,
+    ThemePicker,
+  },
   validate({ params }) {
     // Must be a number
     return /^\d+$/.test(params.id);
@@ -29,7 +41,7 @@ export default {
   },
   computed: {
     fetched() {
-      return (this.fetchCount == 1);
+      return this.fetchCount == 1;
     },
   },
   methods: {},
@@ -48,7 +60,16 @@ export default {
 </script>
 
 <style>
-.wrapper {
-  
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+.loading-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 </style>

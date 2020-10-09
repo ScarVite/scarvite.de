@@ -17,9 +17,35 @@ module.exports = {
   /*
   ** Enabling Google Analytics
   */
-  plugins: [{ src: '~plugins/ga.js', mode: 'client' }],
+  plugins: [
+    { src: '~plugins/ga.js', mode: 'client' }
+  ],
+  /*
+  ** Add FAS config
+  */
+  fontawesome: {
+    component: 'fa',
+    suffix: true,
+    icons: {
+      solid: true
+    },
+  },
+  /*
+  ** Adding The Required Modules
+  */
   modules: [
     '@nuxtjs/axios',
+  ],
+  buildModules: [
+    '@nuxtjs/color-mode',
+    '@nuxtjs/svg',
+    '@nuxtjs/fontawesome'
+  ],
+  /*
+  ** Adding Main Css/ Scss
+  */
+  css: [
+    '@/css/main.css'
   ],
   /*
   ** Headers of the page
@@ -28,7 +54,7 @@ module.exports = {
     title: 'ScarVite.de',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       { hid: 'description', name: 'description', content: 'ScarVite Portfolio' }
     ],
     link: [

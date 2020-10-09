@@ -1,5 +1,6 @@
 export const state = () => ({
     message: "Hallo",
+    theme: 'dark',
     //user: {}
   })
   
