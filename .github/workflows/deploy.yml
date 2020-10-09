@@ -7,7 +7,7 @@ on:
     - '**.yml'
 jobs:
   Deploy:
-    runs-on: debian-10
+    runs-on: ubuntu-latest
     steps:
       - name: Deploying...
         uses: appleboy/ssh-action@master
