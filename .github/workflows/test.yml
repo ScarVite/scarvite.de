@@ -9,9 +9,16 @@ on:
     - '**.yml'
 jobs:
   Test:
-    runs-on: debian-10
+    name: Test Deployability
+    runs-on: debian-latest
     steps:
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install Deps
+        run: npm install
       - name: Building...
       run: |
-      npm install
-      nuxt generate --fail-on-error
+        npm install
+        nuxt generate --fail-on-error
