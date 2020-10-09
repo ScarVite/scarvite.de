@@ -1,0 +1,17 @@
+name: Deploy
+on:
+  push:
+    branches: 
+    - master
+    - rewrite
+    paths-ignore:
+    - '**.md'
+    - '**.yml'
+jobs:
+  Test:
+    runs-on: debian-10
+    steps:
+      - name: Building...
+      run: |
+      npm install
+      nuxt generate --fail-on-error
