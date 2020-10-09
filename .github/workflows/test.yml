@@ -2,8 +2,11 @@ name: Deploy
 on:
   push:
     branches: 
-    - master
-    - rewrite
+      - master
+      - rewrite
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
 jobs:
   Test:
     name: Test Deployability
