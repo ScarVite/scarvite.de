@@ -9,6 +9,7 @@ jobs:
     name: Test Deployability
     runs-on: debian-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
