@@ -1,7 +1,7 @@
 export const state = () => ({
     message: "Hallo",
     theme: 'dark',
-    //user: {}
+    user: {}
   })
   
   export const mutations = {
