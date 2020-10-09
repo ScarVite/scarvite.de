@@ -14,6 +14,7 @@
         </div>
       </div>
     </div>
+    <div v-else-if="error.code">Error</div>
     <div v-else class="loading-wrapper">
       <loader class="ring" />
     </div>
@@ -37,6 +38,7 @@ export default {
     return {
       project: {},
       fetchCount: 0,
+      error: {},
     };
   },
   computed: {
@@ -47,10 +49,14 @@ export default {
   methods: {},
   created() {
     this.$axios
-      .$get(`https://api.scarvite.de/site/project/${this.$route.params.id}`)
-      .then((project) => {
-        this.project = project;
-        this.fetchCount++;
+      .get(`https://api.scarvite.de/site/project/${this.$route.params.id}`)
+      .then((response) => {
+        if (response.statusCode == 204)
+          this.error = { code: response.statusCode };
+        else {
+          this.project = response.data;
+          this.fetchCount++;
+        }
       })
       .catch((error) => {
         console.log(error);

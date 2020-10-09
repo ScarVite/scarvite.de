@@ -9,7 +9,7 @@
       <h2 class="subtitle">
         This Site is Still undergoing Development. Check Back Later
       </h2>
-      <div class="links"></div>
+      <div class="links" />
     </div>
   </div>
   <div
