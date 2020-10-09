@@ -1,16 +1,16 @@
 <template>
   <div class="app">
-    <ThemePicker class="theme" v-on-clickaway="123" />
+    <navigation class="nav" />
     <nuxt class="nuxt" />
   </div>
 </template>
 
 <script>
-import ThemePicker from "@/components/ThemePicker";
+import navigation from "@/components/navigation";
 
 export default {
   components: {
-    ThemePicker,
+    navigation,
   },
 };
 </script>
@@ -19,10 +19,9 @@ export default {
 .app {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
-.theme {
+.nav {
   display: none;
 }
 

@@ -1,5 +1,6 @@
 <template >
   <div class="app">
+    <ThemePicker ref="themepicker"/>
     <div v-if="fetched" class="wrapper">
       <div class="project">
         <div class="name">
@@ -21,10 +22,12 @@
 
 <script>
 import loader from "~/components/loader.vue";
+import ThemePicker from "~/components/ThemePicker.vue";
 
 export default {
   components: {
     loader,
+    ThemePicker
   },
   validate({ params }) {
     // Must be a number

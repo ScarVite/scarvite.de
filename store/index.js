@@ -7,5 +7,8 @@ export const state = () => ({
   export const mutations = {
       changeMessage(state, message) {
           state.message = message;
+      },
+      updateTheme(theme){
+          state.theme = theme;
       }
   }

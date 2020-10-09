@@ -3,8 +3,10 @@
     <fa-icon class="button" @click="expanded = !expanded" icon="list" />
     <div v-if="expanded" class="color-wrapper">
       <div v-for="(color, i) of colors" :key="i">
-        <div class="color" @click="$colorMode.preference = color.color">
-          {{ color.name }}
+        <div class="color" @click="changeTheme(color.color)">
+          <div :class="{active: $colorMode.preference== color.color }">
+            {{ color.name }} 
+          </div>
         </div>
       </div>
     </div>
@@ -25,11 +27,20 @@ export default {
       expandedTest: false,
     };
   },
-  methods: {},
+  methods: {
+    changeTheme(theme) {
+      this.$colorMode.preference = theme;
+      this.$store.commit("updateTheme", theme);
+    },
+  },
 };
 </script>
 
 <style>
+.active {
+  color: red;
+}
+
 .dropdown-wrapper {
   float: right;
 }
@@ -43,14 +54,9 @@ export default {
 }
 
 .color {
-  display: block;
-  /*transition: all .3s ease;
-  height: 30vw;
-  padding-right: 1vw;
-  padding-left: 1vw;
-  margin: auto;*/
-  text-align: right;
-  right: 0;
   cursor: pointer;
+  font-size: 1vw;
+  display: block;
+  text-align: center;
 }
 </style>
