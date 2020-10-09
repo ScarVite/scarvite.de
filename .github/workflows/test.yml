@@ -2,23 +2,25 @@ name: Deploy
 on:
   push:
     branches: 
-    - master
-    - rewrite
+      - master
+      - rewrite
     paths-ignore:
-    - '**.md'
-    - '**.yml'
+      - '**.md'
+      - '**.yml'
 jobs:
   Test:
     name: Test Deployability
-    runs-on: debian-latest
+    runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v2
       - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 14 
       - name: Install Deps
-        run: npm install
+        run: |
+         npm install
+         npm install nuxt
       - name: Build
         run: |
-          npm install
           nuxt generate --fail-on-error
