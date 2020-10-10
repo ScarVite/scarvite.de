@@ -17,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/fontawesome": "^1.1.2",
+    "cookie-universal-nuxt": "^2.1.4",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

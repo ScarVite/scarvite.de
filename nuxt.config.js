@@ -35,6 +35,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
+    'cookie-universal-nuxt',
   ],
   buildModules: [
     '@nuxtjs/color-mode',

@@ -2,15 +2,18 @@
   <div class="app">
     <navigation class="nav" />
     <nuxt class="nuxt" />
+    <CookieConsent />
   </div>
 </template>
 
 <script>
 import navigation from "@/components/navigation";
+import CookieConsent from "@/components/Cookie-Consent";
 
 export default {
   components: {
     navigation,
+    CookieConsent,
   },
 };
 </script>
