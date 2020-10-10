@@ -41,6 +41,10 @@ export default {
     };
   },
   computed: {
+    title() {
+      if(this.project.name == undefined) return "Loading..."
+      else return `${this.project.name} - Projekt`
+    },
     fetched() {
       return this.fetchCount == 1;
     },
@@ -61,6 +65,11 @@ export default {
         return this.$nuxt.error({ statusCode: 404, message: "An Error Occured" })
       });
   },
+  head() {
+    return {
+      title: this.title,
+    };
+  }
 };
 </script>
 
