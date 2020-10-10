@@ -50,8 +50,7 @@ export default {
     this.$axios
       .get(`https://api.scarvite.de/site/project/${this.$route.params.id}`)
       .then((response) => {
-        if (response.status == 204)
-          return this.$nuxt.error({ statusCode: 404, message: "Project Not Found" })
+        if (response.status != 200) return this.$nuxt.error({ statusCode: 404, message: "Project Not Found" })
         else {
           this.project = response.data;
           this.fetchCount++;
@@ -59,6 +58,7 @@ export default {
       })
       .catch((error) => {
         console.log(error);
+        return this.$nuxt.error({ statusCode: 404, message: "An Error Occured" })
       });
   },
 };

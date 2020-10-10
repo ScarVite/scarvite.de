@@ -1,6 +1,12 @@
 <template>
     <div class="wrapper">
-        <!-- Hier V-for -->
+        <div
+        class="project"
+        v-for="(project, i) of projects"
+        :key="i"
+      >
+      <nuxt-link :to="`/projects/${project.ID}`">{{ project.name }}</nuxt-link>
+        </div>
     </div>
 </template>
 

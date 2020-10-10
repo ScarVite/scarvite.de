@@ -8,6 +8,7 @@
 import ThemePicker from "~/components/ThemePicker.vue";
 
 export default {
+    name: 'navigation',
     components: {
     ThemePicker,
   },

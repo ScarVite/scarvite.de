@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'ThemePicker',
   components: {},
   data() {
     return {

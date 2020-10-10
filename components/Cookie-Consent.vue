@@ -48,7 +48,7 @@ export default {
   border: unset;
   border-radius: 3px;
   background-color: darkgrey;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
