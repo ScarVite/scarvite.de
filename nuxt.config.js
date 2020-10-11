@@ -18,7 +18,7 @@ module.exports = {
   ** Enabling Google Analytics
   */
   plugins: [
-    { src: '~plugins/ga.js', mode: 'client' }
+    { src: '~plugins/google-analytics.js', mode: 'client' }
   ],
   /*
   ** Add FAS config
@@ -52,7 +52,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'ScarVite.de',
+    title: 'ScarVite',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },

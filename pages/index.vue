@@ -50,7 +50,7 @@ export default {
   },
   head() {
     return {
-      title: "ScarVite",
+      title: "Startseite",
     };
   },
 };
