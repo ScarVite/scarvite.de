@@ -14,18 +14,19 @@
   </div>
   <div
     v-else
-    class="container"
-    :style="{ backgroundImage: `url(${backgroundUrl})` }"
+    class="loading-wrapper"
   >
-    Loading
+    <loader class="ring" />
   </div>
 </template>
 
 <script>
+import loader from "~/components/loader.vue";
 import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 
 export default {
   components: {
+    loader,
   },
   data() {
     return {
@@ -57,6 +58,19 @@ export default {
 </script>
 
 <style>
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+.loading-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   background-position: center center;
   background-repeat: no-repeat;
