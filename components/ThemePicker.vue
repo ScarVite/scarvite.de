@@ -56,6 +56,7 @@ export default {
   z-index: 1;
   position: absolute;
   background-color: black;
+  color: white;
 }
 
 .button {
