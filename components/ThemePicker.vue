@@ -49,10 +49,9 @@ export default {
   float: right;
 }
 
-.color-wraper {
-  margin-top: 10px;
+.color-wrapper {
+  margin-top: 50px;
   width: 10em;
-  border-radius: 3px;
   right: 0px;
   z-index: 1;
   position: absolute;
@@ -69,7 +68,6 @@ export default {
 }
 
 .color {
-  float:right;
   padding: 0.2vw;
   border-color: grey;
   border-style: solid;
