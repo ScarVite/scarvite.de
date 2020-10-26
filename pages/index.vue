@@ -22,8 +22,8 @@
 
 <script>
 import loader from "~/components/loader.vue";
-import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 import socket from '~/plugins/socket.io.js'
+import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
 
 export default {
   components: {
@@ -48,9 +48,9 @@ export default {
   },
   mounted() {
     this.websocket = socket("https://api.scarvite.de");
-    this.websocket.on('test', data => {
-      this.websocket.emit('received', {message: "Bin da"})
-    })
+    this.websocket.on("test", (data) => {
+      this.websocket.emit("received", { message: "Connected" });
+    });
   },
   created() {
     setTimeout(() => {

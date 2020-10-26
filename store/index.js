@@ -1,6 +1,5 @@
 export const state = () => ({
     message: "Hallo",
-    theme: 'dark',
     user: {}
   })
   
@@ -8,7 +7,4 @@ export const state = () => ({
       changeMessage(state, message) {
           state.message = message;
       },
-      updateTheme(theme){
-          state.theme = theme;
-      }
   }

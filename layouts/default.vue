@@ -15,6 +15,9 @@ export default {
     navigation,
     CookieConsent,
   },
+  mounted() {
+
+  },
 };
 </script>
 
