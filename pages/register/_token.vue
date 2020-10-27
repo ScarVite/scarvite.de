@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-if="loaded">Email Verification Sucessfull</div>
+    <div v-if="loaded">
+      Email Verification Sucessfull
+      <nuxt-link to="/login">You can Login here </nuxt-link>
+    </div>
     <div v-else class="loading-wrapper">
       <loader class="ring" />
     </div>
@@ -11,10 +14,6 @@
 import loader from "~/components/loader.vue";
 
 export default {
-  validate({ params }) {
-    // Must be a number
-    return /^\d+$/.test(params.token);
-  },
   components: {
     loader,
   },
@@ -24,25 +23,29 @@ export default {
     };
   },
   created() {
-    this.$axios
-      .get(`https://api.scarvite.de/site/register/${this.$route.params.token}`)
-      .then((response) => {
-        if (response.status != 200)
+    if (process.client) {
+      this.$axios
+        .get(
+          `https://api.scarvite.de/site/register/${this.$route.params.token}`
+        )
+        .then((response) => {
+          if (response.status != 200)
+            return this.$nuxt.error({
+              statusCode: 404,
+              message: "This Token Does not Exist or Is Expired",
+            });
+          else {
+            this.loaded = true;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           return this.$nuxt.error({
             statusCode: 404,
-            message: "This Token Does not Exist or Is Expired",
+            message: "An Error Occured",
           });
-        else {
-            this.loaded = true;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        return this.$nuxt.error({
-          statusCode: 404,
-          message: "An Error Occured",
         });
-      });
+    }
   },
 };
 </script>

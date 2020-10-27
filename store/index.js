@@ -1,6 +1,6 @@
 export const state = () => ({
     message: "Hallo",
-    user: {}
+    user: null
   })
   
   export const mutations = {
