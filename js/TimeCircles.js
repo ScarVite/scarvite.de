@@ -238,7 +238,7 @@
             useWindow.TC_Instance_List = TC_Instance_List;
         }
         initializeAnimationFrameHandler(useWindow);
-    };
+    }
 
     function initializeAnimationFrameHandler(w) {
         var vendors = ['webkit', 'moz'];
@@ -263,7 +263,7 @@
                 clearTimeout(id);
             };
         }
-    };
+    }
 
 
     var TC_Instance = function(element, options) {
