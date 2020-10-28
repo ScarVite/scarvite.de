@@ -7,4 +7,7 @@ export const state = () => ({
       changeMessage(state, message) {
           state.message = message;
       },
+      storeUser(state, user) {
+          state.user = user;
+      }
   }

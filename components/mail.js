@@ -26,7 +26,6 @@ function sendMail(mailOptions) {
             });
 
         })
-
 }
 
-exports.sendmail = sendMail; 
+exports.sendMail = sendMail;
