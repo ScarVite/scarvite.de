@@ -16,13 +16,18 @@ export default {
   },
   methods: {
     consent() {
-      this.$cookies.set('cookie-consent', 1)
+      //this.$cookies.set('cookie-consent', 1);
+      if (process.client) {
+        localStorage.setItem("cookie-consent", true);
+      }
       this.display = false;
     },
   },
   created() {
-    if (this.$cookies.get('cookie-consent') == undefined) {
-      this.display = true;
+    if (process.client) {
+      if (localStorage.getItem("cookie-consent") == undefined) {
+        this.display = true;
+      }
     }
   },
 };

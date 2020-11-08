@@ -26,7 +26,7 @@ export default {
     if (process.client) {
       this.$axios
         .get(
-          `https://api.scarvite.de/site/register/${this.$route.params.token}`
+          `https://api.scarvite.de/site/forgot-password/${this.$route.params.token}`
         )
         .then((response) => {
           if (response.status != 200)

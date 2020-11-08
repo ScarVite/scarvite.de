@@ -32,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -73,11 +74,15 @@ export default {
               };
             } else if (response.data.sucess) {
               this.$store.commit("storeUser", response.data.user);
+              this.$axios.defaults.headers.common["Authorization"] = response.data.token;
+              if (process.client) {
+                //localStorage.setItem("token", response.data.token);
+              }
               /*this.$router.push({
                 path: "/",
               });*/
               this.message = {
-                message: response.data.user,
+                message: "Erfolgreich angemeldet",
                 error: false,
               };
             }

@@ -44,6 +44,12 @@ module.exports = {
     '@nuxtjs/fontawesome'
   ],
   /*
+ ** Adding Auth Settings
+ */
+  auth: {
+    // Options
+  },
+  /*
   ** Adding Main Css/ Scss
   */
   css: [
