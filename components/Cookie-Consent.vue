@@ -15,20 +15,18 @@ export default {
     };
   },
   methods: {
-    consent() {
-      //this.$cookies.set('cookie-consent', 1);
-      if (process.client) {
-        localStorage.setItem("cookie-consent", true);
+    checkToken() {
+      if (!this.$cookies.get("cookie-consent")) {
+        this.display = true;
       }
+    },
+    consent() {
+      this.$cookies.set("cookie-consent", 1);
       this.display = false;
     },
   },
   created() {
-    if (process.client) {
-      if (localStorage.getItem("cookie-consent") == undefined) {
-        this.display = true;
-      }
-    }
+    this.checkToken();
   },
 };
 </script>
