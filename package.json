@@ -15,12 +15,23 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/fontawesome": "^1.1.2",
+    "apicache": "^1.6.2",
+    "body-parser": "^1.19.0",
     "cookie-universal-nuxt": "^2.1.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "file-system": "^2.2.2",
+    "helmet": "^4.6.0",
+    "http": "*",
     "nodemailer": "^6.4.14",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "serverboy": "^0.0.6",
+    "socket.io": "^4.0.2",
+    "socket.io-client": "^4.0.2"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.1.1",
