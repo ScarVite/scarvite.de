@@ -5,8 +5,7 @@ export default ({ app }) => {
      ** Only run on client-side and only in production mode
      ** Need to Change This, when going into Production
      */
-    var GTag = "UA-154545500-1";
-    if (process.env.NODE_ENV == 'development') GTag = "UA-154545500-4";
+    var GTag = process.env.NODE_ENV == 'development' ? "UA-154545500-4" : "UA-154545500-1";
         /*
         ** Include Google Analytics Script
         */

@@ -2,6 +2,26 @@
   <div>
     <div v-if="loaded">
       <canvas id="gameBoyImage" ref="gameBoyImage"></canvas>
+      <div class="dpad-wrapper">
+        <div class="center">
+          <div class="center-circle"></div>
+        </div>
+
+        <div class="up direction" @click="keyPress('UP')">
+          <div class="up-triangle"></div>
+        </div>
+
+        <div class="right direction" @click="keyPress('RIGHT')">
+          <div class="right-triangle"></div>
+        </div>
+        <div class="down direction" @click="keyPress('DOWN')">
+          <div class="down-triangle"></div>
+        </div>
+
+        <div class="left direction" @click="keyPress('LEFT')">
+          <div class="left-triangle"></div>
+        </div>
+      </div>
     </div>
     <div v-else class="loading-wrapper">
       <loader class="ring" />
@@ -15,42 +35,40 @@ import loader from "~/components/loader.vue";
 
 export default {
   components: {
-    loader,
+    loader
   },
   data() {
     return {
       loaded: false,
       websocket: null,
       GBCanvas: null,
-      session_id: null,
       last_screen: null
     };
   },
   computed: {},
   methods: {
     initWSConnection() {
-      this.session_id =
-        Math.random().toString(36).substr(3) +
-        Math.random().toString(36).substr(3);
-      this.websocket = socket("https://api.scarvite.de", { transports: ['websocket', 'polling', 'flashsocket'] });
+      this.websocket = socket("https://api.scarvite.de/gameboy", {
+        transports: ["websocket", "polling", "flashsocket"]
+      });
       this.websocket.emit("init");
-      this.websocket.once("ready", (response) => {
+      this.websocket.once("ready", response => {
         if (response.success) {
           this.loaded = true;
         } else {
           this.$nuxt.error({
             statusCode: 412,
-            message: "Something went wrong while creating your Session",
+            message: "Something went wrong while creating your Session"
           });
         }
       });
-      this.websocket.on("image", (screen) => {
-        if(this.last_screen){
+      this.websocket.on("image", screen => {
+        if (this.last_screen) {
           for (let index = 0; index < screen.length; index++) {
-            const lastpixel = this.last_screen[index]
-            const current = screen[index]
+            const lastpixel = this.last_screen[index];
+            const current = screen[index];
 
-            if(current == -1) screen[index] = lastpixel
+            if (current == -1) screen[index] = lastpixel;
           }
         }
 
@@ -60,17 +78,47 @@ export default {
         var data = ctx.createImageData(160, 144);
         data.data.set(screen);
         ctx.putImageData(data, 0, 0);
-        (50, 100, 110, 44)
       });
+    },
+    keyPress(key) {
+      this.websocket.emit("keyPress", key);
     },
   },
   mounted() {
     if (process.client) {
       this.initWSConnection();
+      const that = this;
+      window.addEventListener("keydown", function(e) {
+        switch (e.key.toString()) {
+          case "ArrowUp":
+            that.keyPress('UP');
+            break;
+          case "ArrowLeft":
+            that.keyPress('LEFT');
+            break;
+          case "ArrowRight":
+            that.keyPress('RIGHT');
+            break;
+          case "ArrowDown":
+            that.keyPress('DOWN');
+            break;
+          case "a":
+            that.keyPress('A');
+            break;
+          case "b":
+            that.keyPress('B');
+            break;
+        }
+      });
     }
   },
   created() {},
-  head() {},
+  head() {
+    return {
+      title: "Gameboy Emulator",
+      description: "A Gameboy Emulator in the Web"
+    };
+  }
 };
 </script>
 

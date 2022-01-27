@@ -127,6 +127,12 @@ export default {
   mounted() {
     if (process.browser) this.main();
   },
+  head() {
+    return {
+      title: "Snake - ScarVite",
+      description: "You Can Play Snake here"
+    }
+  }
 };
 </script>
 

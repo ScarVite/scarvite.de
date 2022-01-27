@@ -2,6 +2,9 @@ module.exports = {
   /*
   ** Customizing Port for dev Build
   */
+  env: {
+    devMode: true,
+  },
   server: {
     port: 3001,
   },
@@ -37,6 +40,7 @@ module.exports = {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     '@nuxtjs/auth',
+    '@nuxtjs/apollo',
   ],
   buildModules: [
     '@nuxtjs/color-mode',
@@ -49,6 +53,13 @@ module.exports = {
   auth: {
     // Options
   },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://api.scarvite.de/graphql',
+      }
+    }
+  },
   /*
   ** Adding Main Css/ Scss
   */
@@ -56,10 +67,17 @@ module.exports = {
     '@/css/main.css'
   ],
   /*
+  ** Server Middleware
+  */
+  serverMiddleware: {
+    '/api': '~/api'
+  },
+  /*
   ** Headers of the page
   */
   head: {
-    title: 'ScarVite',
+    title: 'ScarVite.de',
+    author: 'ScarVite',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },

@@ -1,9 +1,10 @@
 <template>
+<div v-if="devMode">
   <div
     v-if="loaded"
     class="container"
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
-  >
+  > 
     <div>
       <h1 class="title">Welcome to My Website</h1>
       <h2 class="subtitle">
@@ -18,12 +19,16 @@
   >
     <loader class="ring" />
   </div>
+</div>
+<div v-else>
+  test
+</div>
 </template>
 
 <script>
 import loader from "~/components/loader.vue";
-import socket from '~/plugins/socket.io.js'
-import backgroundUrl from "~/assets/galaxy_boy_kite.jpg";
+import socket from 'socket.io-client'
+import backgroundUrl from "~/assets/anime_rain.gif";
 
 export default {
   components: {
@@ -40,6 +45,9 @@ export default {
     message() {
       return this.$store.state.message;
     },
+    devMode() {
+      return process.env.devMode;
+    }
   },
   methods: {
     changeMessage(Message) {
@@ -47,7 +55,7 @@ export default {
     },
   },
   mounted() {
-    this.websocket = socket("https://api.scarvite.de");
+    this.websocket = socket("https://api.scarvite.de", { transports: ['websocket', 'polling', 'flashsocket'] });
     this.websocket.on("test", (data) => {
       this.websocket.emit("received", { message: "Connected" });
     });

@@ -9,3 +9,6 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+# Server Login Data and JWT Stuff
+config.json
